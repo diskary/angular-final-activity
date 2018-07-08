@@ -20,10 +20,12 @@ export class PostListItemComponent implements OnInit {
 
   onLoveIt() {
     this.loveIts++;
+    this.postService.setLovets(this.id,this.loveIts);
   }
 
   onDontLoveIt() {
     this.loveIts--;
+    this.postService.setLovets(this.id,this.loveIts);
   }
 
   getColor() {
@@ -34,9 +36,7 @@ export class PostListItemComponent implements OnInit {
     }
   }
 
-  onDelete(){
-   
-    this.postService.deletePost(this.id);
-    
+  onDelete(){  
+    this.postService.deletePost(this.id);    
   }
 }

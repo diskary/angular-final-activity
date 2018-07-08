@@ -27,13 +27,24 @@ export class PostService {
     //this.emitPostSubject();
   }
 
-  deletePost(postId: number){
-    
+
+  /**
+   * Permet la suppression d'un poste
+   * @param postId : Entier qui répresente l'id du poste
+   */
+  deletePost(postId: number){   
     this.post.forEach(function(element,index,object){
       if(element.id === postId){
         object.splice(index,1);
-      }
-      
+      }      
+    });
+  }
+
+  setLovets(postId: number, lovetValue: number){
+    this.post.forEach(function(element,index,object){
+      if(element.id === postId){
+        element.loveIts = lovetValue;
+      }      
     });
   }
 

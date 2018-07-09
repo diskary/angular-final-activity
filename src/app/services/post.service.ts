@@ -23,8 +23,8 @@ export class PostService {
   
     const addPost = new Post(this.setPostId(), postData.title, postData.content);
     this.post.push(addPost);
-
-    //this.emitPostSubject();
+    // On émet le subject
+    this.emitPostSubject();
   }
 
 
@@ -38,6 +38,8 @@ export class PostService {
         object.splice(index,1);
       }      
     });
+    // On émet le subject
+    this.emitPostSubject();
   }
 
   setLovets(postId: number, lovetValue: number){
@@ -46,6 +48,8 @@ export class PostService {
         element.loveIts = lovetValue;
       }      
     });
+    // On émet le subject
+    this.emitPostSubject();
   }
 
   setPostId(){

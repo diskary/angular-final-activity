@@ -19,6 +19,10 @@ export class PostService {
     return this.post;
   }
 
+  /**
+   * Permet la creation d'un post
+   * @param postData : Donnée de type Post, répresentant les données du formulaire
+   */
   createPost(postData: Post){
   
     const addPost = new Post(this.setPostId(), postData.title, postData.content);
